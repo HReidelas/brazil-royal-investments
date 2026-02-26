@@ -5,17 +5,17 @@ const services = [
   {
     icon: Briefcase,
     title: "Business Management",
-    text: "Guiding organizations to sustainable growth and operational excellence with tailored strategies that optimize resources and maximize profitability.",
+    text: "We specialize in business management consultancy, guiding organizations to sustainable growth and operational excellence. With tailored strategies, we empower businesses to navigate challenges, optimize resources, and seize opportunities, driving efficiency and maximizing profitability.",
   },
   {
     icon: Shield,
     title: "Non-Financial Intangible Assets",
-    text: "Helping businesses unlock and leverage intellectual property, brand equity, and other intangible resources for sustainable growth and competitive advantage.",
+    text: "We specialize in managing non-financial intangible assets, helping businesses unlock and leverage their valuable intellectual property, brand equity, and other intangible resources. Through strategic guidance and innovative solutions, we empower organizations to maximize the value of their intangible assets, driving sustainable growth and competitive advantage in today's dynamic market landscape.",
   },
   {
     icon: Handshake,
     title: "Intermediation & Agency",
-    text: "Bridging gaps and facilitating connections to streamline operations. Expertise in matchmaking and negotiations for seamless, mutually beneficial partnerships.",
+    text: "We offer intermediation and agency services for businesses, bridging gaps and facilitating connections to streamline operations and optimize outcomes. With expertise in matchmaking and negotiations, we ensure seamless transactions and foster mutually beneficial partnerships that drive success for all parties involved.",
   },
 ];
 
