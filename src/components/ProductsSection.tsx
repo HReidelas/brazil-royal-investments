@@ -16,12 +16,13 @@ const featuredProducts = [
 ];
 
 const productCategories = [
-  { title: "Sugar", desc: "Brazilian sugar renowned worldwide for exceptional quality and reliability, meeting the highest standards of taste and purity." },
-  { title: "Cereals & Grains", desc: "Premium corn, soybeans, and staple grains carefully sourced and processed for quality and consistency." },
-  { title: "Coffee", desc: "Roasted, ground, and instant coffee sourced from premium beans from Brazil and Guatemala." },
-  { title: "Oils", desc: "Premium cooking, specialty, and health-focused oils for human consumption from trusted suppliers." },
-  { title: "Ice Cream & Desserts", desc: "Artisanal ice cream, gourmet sorbets, and decadent desserts with dietary-friendly options." },
-  { title: "Fuels, Minerals & Steel", desc: "Intermediation of fuels, minerals, steel products, and chemicals ensuring seamless supply chains." },
+  { title: "Sugar", desc: "Brazilian sugar renowned worldwide for its exceptional quality and reliability. Sourced from the fertile fields of Brazil, consistently meeting the highest standards of taste and purity." },
+  { title: "Cereals & Grains", desc: "Our lineup includes an array of cereals and grains, including staples like corn and soybeans. Renowned for their versatility and nutritional value, carefully sourced and processed for quality and consistency." },
+  { title: "Coffee", desc: "Roasted, ground, and instant coffee sourced from premium beans from Brazil and Guatemala. From single-origin beans and specialty blends to convenient instant options." },
+  { title: "Oils for Human Consumption", desc: "Premium cooking oils, specialty oils including extra virgin olive oil, coconut and avocado oil, and health-focused oils rich in omega-3, all from trusted suppliers." },
+  { title: "Ice Cream & Desserts", desc: "Artisanal ice cream, gourmet sorbets, and decadent desserts, with sugar-free, lactose-free, and water-based options to cater to all dietary needs." },
+  { title: "Fuels, Minerals & Steel", desc: "As intermediaries between producers and consumers, we facilitate transactions for fuels, minerals, steel products, and chemicals, ensuring seamless supply chains." },
+  { title: "Food Items in General", desc: "We specialize in sourcing, distributing, and trading a diverse range of food products. Leveraging our global network to ensure efficient delivery of high-quality food items." },
 ];
 
 const ProductsSection = () => {

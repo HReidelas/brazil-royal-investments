@@ -10,12 +10,12 @@ const cards = [
   {
     icon: Target,
     title: "Our Mission",
-    text: "To identify and seize opportunities that generate superior returns while contributing to the growth and well-being of the communities we serve.",
+    text: "Our mission is to identify and seize opportunities that aim to generate superior returns while contributing to the growth and well-being of the communities we serve. We are dedicated to nurturing long-term relationships, fostering innovation, and championing responsible investment practices that drive positive impact and shape a brighter future for generations to come.",
   },
   {
     icon: Award,
     title: "Our Commitment",
-    text: "Excellence in every aspect, providing personalized strategies and attentive support to exceed expectations. Quality drives us to innovate, evolve, and deliver exceptional results.",
+    text: "We're committed to excellence in every aspect, providing personalized strategies and attentive support to exceed expectations. Our dedication to quality drives us to innovate, evolve, and deliver exceptional results, ensuring your success is our top priority.",
   },
 ];
 
@@ -36,8 +36,7 @@ const AboutSection = () => {
           </h2>
           <div className="bg-gradient-gold-horizontal h-px w-32 mx-auto mb-8" />
           <p className="text-muted-foreground font-elegant text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            We pride ourselves on fostering growth opportunities and delivering value to our partners and clients.
-            Every decision is guided by expertise, integrity, and a commitment to excellence.
+            We specialize in unlocking potential and maximizing returns. We pride ourselves on fostering growth opportunities and delivering value to our partners and clients. Welcome to the forefront of transformative investment solutions, where every decision is guided by expertise, integrity, and a commitment to excellence.
           </p>
         </motion.div>
 
