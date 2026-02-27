@@ -2,17 +2,21 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.jpg";
-
-const links = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#products", label: "Products" },
-  { href: "#contact", label: "Contact" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const links = [
+    { href: "#about", label: t.nav.about },
+    { href: "#services", label: t.nav.services },
+    { href: "#products", label: t.nav.products },
+    { href: "#partners", label: t.nav.partners },
+    { href: "#contact", label: t.nav.contact },
+  ];
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
@@ -34,11 +38,15 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <LanguageSelector />
         </div>
 
-        <button onClick={() => setOpen(!open)} className="md:hidden text-primary">
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="flex items-center gap-4 md:hidden">
+          <LanguageSelector />
+          <button onClick={() => setOpen(!open)} className="text-primary">
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

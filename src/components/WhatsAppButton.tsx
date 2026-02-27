@@ -1,6 +1,9 @@
 import { MessageCircle } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const WhatsAppButton = () => {
+  const { t } = useLanguage();
+
   return (
     <a
       href="https://wa.me/966503253273"
@@ -11,7 +14,7 @@ const WhatsAppButton = () => {
     >
       <MessageCircle className="w-7 h-7 text-primary-foreground" />
       <span className="absolute right-full mr-3 bg-card border border-border text-foreground font-body text-xs px-3 py-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-        Chat with us
+        {t.whatsapp.chat}
       </span>
     </a>
   );
