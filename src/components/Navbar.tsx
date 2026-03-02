@@ -32,7 +32,7 @@ const Navbar = () => {
           <span className="font-display text-lg text-gradient-gold hidden sm:inline">BR Investments</span>
         </a>
 
-        <div className="hidden md:flex items-center gap-8 ml-auto">
+        <div className="hidden md:flex items-center gap-8 ml-auto pl-16">
           {links.map(l => (
             <a key={l.href} href={l.href} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
               {l.label}
