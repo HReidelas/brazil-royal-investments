@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, Shield, Handshake } from "lucide-react";
+import { Briefcase, Shield } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const ServicesSection = () => {
@@ -8,7 +8,6 @@ const ServicesSection = () => {
   const services = [
     { icon: Briefcase, title: t.services.businessTitle, text: t.services.businessText },
     { icon: Shield, title: t.services.assetsTitle, text: t.services.assetsText },
-    { icon: Handshake, title: t.services.agencyTitle, text: t.services.agencyText },
   ];
 
   return (
@@ -20,7 +19,7 @@ const ServicesSection = () => {
           <div className="bg-gradient-gold-horizontal h-px w-32 mx-auto" />
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((s, i) => (
             <motion.div key={s.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.2 }} className="relative p-8 md:p-10 border border-border hover:border-primary group transition-all duration-500 bg-background">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
