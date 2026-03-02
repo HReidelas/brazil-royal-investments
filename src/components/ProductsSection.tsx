@@ -5,6 +5,8 @@ import productWhole from "@/assets/product-whole-chicken.jpg";
 import productPremium from "@/assets/product-premium-chicken.jpg";
 import productAngus from "@/assets/product-angus.jpg";
 import productSaria from "@/assets/product-saria.jpg";
+import productCoffeeTin from "@/assets/product-coffee-tin.jpg";
+import productCoffeeBag from "@/assets/product-coffee-bag.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const ProductsSection = () => {
@@ -17,6 +19,8 @@ const ProductsSection = () => {
     { image: productPremium, title: t.products.premChickenTitle, subtitle: t.products.premChickenSub },
     { image: productWhole, title: t.products.wholeTitle, subtitle: t.products.wholeSub },
     { image: productSaria, title: t.products.sariaTitle, subtitle: t.products.sariaSub },
+    { image: productCoffeeTin, title: t.products.coffeeTinTitle, subtitle: t.products.coffeeTinSub },
+    { image: productCoffeeBag, title: t.products.coffeeBagTitle, subtitle: t.products.coffeeBagSub },
   ];
 
   const productCategories = [
