@@ -6,6 +6,7 @@ import productWhole from "@/assets/product-whole-chicken.jpg";
 import productSaria from "@/assets/product-saria.jpg";
 import productCoffeeTin from "@/assets/product-coffee-tin.jpg";
 import productCoffeeBag from "@/assets/product-coffee-bag.jpg";
+import productOliveOil from "@/assets/product-olive-oil.jpg";
 import type { Translations } from "@/i18n/translations";
 
 export interface ProductItem {
@@ -68,7 +69,9 @@ export const categories: CategoryConfig[] = [
     slug: "oils",
     nameKey: "oils",
     descKey: "oilsDesc",
-    products: [],
+    products: [
+      { image: productOliveOil, titleKey: "oliveOilTitle", subKey: "oliveOilSub", descKey: "oliveOilDesc" },
+    ],
   },
   {
     slug: "icecream",
