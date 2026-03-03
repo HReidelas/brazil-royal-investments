@@ -1,22 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageSelector from "./LanguageSelector";
+import { categories } from "@/data/productCategories";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
+  const location = useLocation();
 
-  const links = [
-    { href: "#about", label: t.nav.about },
-    { href: "#services", label: t.nav.services },
-    { href: "#products", label: t.nav.products },
-    { href: "#partners", label: t.nav.partners },
-    { href: "#contact", label: t.nav.contact },
-  ];
+  const isHome = location.pathname === "/";
+
+  const navLink = (href: string) => (isHome ? href : `/${href}`);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
@@ -24,23 +26,92 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setProductsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const simpleLinks = [
+    { href: "#about", label: t.nav.about },
+    { href: "#services", label: t.nav.services },
+    { href: "#partners", label: t.nav.partners },
+    { href: "#contact", label: t.nav.contact },
+  ];
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-md border-b border-border" : "bg-transparent"}`}>
       <div className="container mx-auto px-6 flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="BR Investments" className="w-10 h-10 rounded-full object-cover" />
           <span className="font-display text-lg text-gradient-gold hidden sm:inline">BR Investments</span>
-        </a>
+        </Link>
 
+        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 ml-auto pl-16">
-          {links.map(l => (
-            <a key={l.href} href={l.href} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
-              {l.label}
-            </a>
-          ))}
+          <a href={navLink("#about")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
+            {t.nav.about}
+          </a>
+          <a href={navLink("#services")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
+            {t.nav.services}
+          </a>
+
+          {/* Products Dropdown */}
+          <div ref={dropdownRef} className="relative">
+            <button
+              onClick={() => setProductsOpen(!productsOpen)}
+              className="flex items-center gap-1 font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              {t.nav.products}
+              <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${productsOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            <AnimatePresence>
+              {productsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -5 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-card border border-border shadow-gold min-w-[220px] py-2 z-50"
+                >
+                  <a
+                    href={navLink("#products")}
+                    onClick={() => setProductsOpen(false)}
+                    className="block px-5 py-2.5 font-body text-sm text-primary hover:bg-secondary transition-colors"
+                  >
+                    {t.products.title}
+                  </a>
+                  <div className="bg-gradient-gold-horizontal h-px w-full my-1" />
+                  {categories.map((c) => (
+                    <Link
+                      key={c.slug}
+                      to={`/products/${c.slug}`}
+                      onClick={() => setProductsOpen(false)}
+                      className="block px-5 py-2.5 font-body text-sm text-muted-foreground hover:text-primary hover:bg-secondary transition-colors"
+                    >
+                      {t.products[c.nameKey] as string}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <a href={navLink("#partners")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
+            {t.nav.partners}
+          </a>
+          <a href={navLink("#contact")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
+            {t.nav.contact}
+          </a>
           <LanguageSelector />
         </div>
 
+        {/* Mobile */}
         <div className="flex items-center gap-4 md:hidden">
           <LanguageSelector />
           <button onClick={() => setOpen(!open)} className="text-primary">
@@ -58,11 +129,49 @@ const Navbar = () => {
             className="md:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
-              {links.map(l => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">
-                  {l.label}
-                </a>
-              ))}
+              <a href={navLink("#about")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">
+                {t.nav.about}
+              </a>
+              <a href={navLink("#services")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">
+                {t.nav.services}
+              </a>
+
+              {/* Mobile Products */}
+              <button
+                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                className="flex items-center gap-1 font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors text-left"
+              >
+                {t.nav.products}
+                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${mobileProductsOpen ? "rotate-180" : ""}`} />
+              </button>
+              <AnimatePresence>
+                {mobileProductsOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="flex flex-col gap-3 pl-4 border-l border-border"
+                  >
+                    {categories.map((c) => (
+                      <Link
+                        key={c.slug}
+                        to={`/products/${c.slug}`}
+                        onClick={() => { setOpen(false); setMobileProductsOpen(false); }}
+                        className="font-body text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {t.products[c.nameKey] as string}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <a href={navLink("#partners")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">
+                {t.nav.partners}
+              </a>
+              <a href={navLink("#contact")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">
+                {t.nav.contact}
+              </a>
             </div>
           </motion.div>
         )}
