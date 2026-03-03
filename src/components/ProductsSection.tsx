@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import productSteaks from "@/assets/product-steaks.jpg";
 import productChicken from "@/assets/product-chicken.jpg";
 import productWhole from "@/assets/product-whole-chicken.jpg";
@@ -9,6 +10,7 @@ import productSaria from "@/assets/product-saria.jpg";
 import productCoffeeTin from "@/assets/product-coffee-tin.jpg";
 import productCoffeeBag from "@/assets/product-coffee-bag.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { categories } from "@/data/productCategories";
 import {
   Dialog,
   DialogContent,
@@ -37,16 +39,6 @@ const ProductsSection = () => {
     { image: productSaria, title: t.products.sariaTitle, subtitle: t.products.sariaSub, description: t.products.sariaDesc },
     { image: productCoffeeTin, title: t.products.coffeeTinTitle, subtitle: t.products.coffeeTinSub, description: t.products.coffeeTinDesc },
     { image: productCoffeeBag, title: t.products.coffeeBagTitle, subtitle: t.products.coffeeBagSub, description: t.products.coffeeBagDesc },
-  ];
-
-  const productCategories = [
-    { title: t.products.sugar, desc: t.products.sugarDesc },
-    { title: t.products.cereals, desc: t.products.cerealsDesc },
-    { title: t.products.coffee, desc: t.products.coffeeDesc },
-    { title: t.products.oils, desc: t.products.oilsDesc },
-    { title: t.products.icecream, desc: t.products.icecreamDesc },
-    { title: t.products.fuels, desc: t.products.fuelsDesc },
-    { title: t.products.food, desc: t.products.foodDesc },
   ];
 
   return (
@@ -90,10 +82,19 @@ const ProductsSection = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {productCategories.map((c, i) => (
-              <motion.div key={c.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-card border border-border p-8 hover:border-primary transition-all duration-500 group">
-                <h4 className="text-lg font-display text-primary mb-3 group-hover:text-gold-light transition-colors duration-300">{c.title}</h4>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed">{c.desc}</p>
+            {categories.map((c, i) => (
+              <motion.div key={c.slug} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
+                <Link
+                  to={`/products/${c.slug}`}
+                  className="block bg-card border border-border p-8 hover:border-primary transition-all duration-500 group"
+                >
+                  <h4 className="text-lg font-display text-primary mb-3 group-hover:text-gold-light transition-colors duration-300">
+                    {t.products[c.nameKey] as string}
+                  </h4>
+                  <p className="text-muted-foreground font-body text-sm leading-relaxed">
+                    {t.products[c.descKey] as string}
+                  </p>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -105,25 +106,15 @@ const ProductsSection = () => {
           {selectedProduct && (
             <>
               <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={selectedProduct.image}
-                  alt={selectedProduct.title}
-                  className="w-full h-full object-cover"
-                />
+                <img src={selectedProduct.image} alt={selectedProduct.title} className="w-full h-full object-cover" />
               </div>
               <div className="p-6 md:p-8">
                 <DialogHeader>
-                  <DialogTitle className="text-2xl font-display text-primary mb-1">
-                    {selectedProduct.title}
-                  </DialogTitle>
-                  <DialogDescription className="text-primary/70 font-body text-sm mb-4">
-                    {selectedProduct.subtitle}
-                  </DialogDescription>
+                  <DialogTitle className="text-2xl font-display text-primary mb-1">{selectedProduct.title}</DialogTitle>
+                  <DialogDescription className="text-primary/70 font-body text-sm mb-4">{selectedProduct.subtitle}</DialogDescription>
                 </DialogHeader>
                 <div className="bg-gradient-gold-horizontal h-px w-20 mb-6" />
-                <div className="text-muted-foreground font-body text-sm leading-relaxed whitespace-pre-line">
-                  {selectedProduct.description}
-                </div>
+                <div className="text-muted-foreground font-body text-sm leading-relaxed whitespace-pre-line">{selectedProduct.description}</div>
               </div>
             </>
           )}
