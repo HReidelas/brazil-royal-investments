@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
+import companyLogo from "@/assets/logo.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { categories, type ProductItem } from "@/data/productCategories";
 import Navbar from "@/components/Navbar";
@@ -87,6 +88,14 @@ const CategoryPage = () => {
                   className="group relative overflow-hidden border border-border hover:border-primary transition-all duration-500 cursor-pointer"
                   onClick={() => setSelectedProduct(p)}
                 >
+                  <div className="absolute top-4 right-4 z-10 rounded-md border border-border bg-background/90 p-2 backdrop-blur-sm">
+                    <img
+                      src={companyLogo}
+                      alt="DR Investments logo"
+                      className="h-8 w-8 object-cover"
+                      loading="lazy"
+                    />
+                  </div>
                   <div className="aspect-[4/5] overflow-hidden">
                     <img
                       src={p.image}
@@ -133,7 +142,14 @@ const CategoryPage = () => {
         <DialogContent className="max-w-2xl bg-card border-border p-0 overflow-hidden">
           {selectedProduct && (
             <>
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="absolute top-4 right-4 z-10 rounded-md border border-border bg-background/90 p-2 backdrop-blur-sm">
+                  <img
+                    src={companyLogo}
+                    alt="DR Investments logo"
+                    className="h-10 w-10 object-cover"
+                  />
+                </div>
                 <img
                   src={selectedProduct.image}
                   alt={t.products[selectedProduct.titleKey] as string}
