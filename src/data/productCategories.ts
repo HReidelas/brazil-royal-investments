@@ -1,4 +1,5 @@
 import companyLogo from "@/assets/logo.jpg";
+import productSugar from "@/assets/product-sugar.png";
 import productAngus from "@/assets/product-angus.jpg";
 import productSteaks from "@/assets/product-steaks.jpg";
 import productChicken from "@/assets/product-chicken.jpg";
@@ -62,7 +63,7 @@ export const categories: CategoryConfig[] = [
     nameKey: "sugar",
     descKey: "sugarDesc",
     products: [
-      { image: companyLogo, titleKey: "sugarIcumsaTitle", subKey: "sugarIcumsaSub", descKey: "sugarIcumsaDesc" },
+      { image: productSugar, titleKey: "sugarIcumsaTitle", subKey: "sugarIcumsaSub", descKey: "sugarIcumsaDesc" },
     ],
   },
   {
