@@ -1,4 +1,5 @@
 import companyLogo from "@/assets/logo.jpg";
+import productSugar from "@/assets/product-sugar.png";
 import productAngus from "@/assets/product-angus.jpg";
 import productSteaks from "@/assets/product-steaks.jpg";
 import productChicken from "@/assets/product-chicken.jpg";
