@@ -3,6 +3,7 @@ import productSugar from "@/assets/product-sugar.png";
 import productFuels from "@/assets/product-fuels.png";
 import productCereals from "@/assets/product-cereals.png";
 import productIcecream from "@/assets/product-icecream.png";
+import productFood from "@/assets/product-food.png";
 import productAngus from "@/assets/product-angus.jpg";
 import productSteaks from "@/assets/product-steaks.jpg";
 import productChicken from "@/assets/product-chicken.jpg";
@@ -107,7 +108,7 @@ export const categories: CategoryConfig[] = [
     nameKey: "food",
     descKey: "foodDesc",
     products: [
-      { image: companyLogo, titleKey: "tomatoPasteTitle", subKey: "tomatoPasteSub", descKey: "tomatoPasteDesc" },
+      { image: productFood, titleKey: "tomatoPasteTitle", subKey: "tomatoPasteSub", descKey: "tomatoPasteDesc" },
     ],
   },
 ];
