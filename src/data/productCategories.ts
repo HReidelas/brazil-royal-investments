@@ -53,7 +53,7 @@ export const categories: CategoryConfig[] = [
       { image: productPremium, titleKey: "premChickenTitle", subKey: "premChickenSub", descKey: "premChickenDesc" },
       { image: productWhole, titleKey: "wholeTitle", subKey: "wholeSub", descKey: "wholeDesc" },
       { image: productSaria, titleKey: "sariaTitle", subKey: "sariaSub", descKey: "sariaDesc" },
-      { image: productPremium, titleKey: "drumstickTitle", subKey: "drumstickSub", descKey: "drumstickDesc" },
+      { image: productDrumstick, titleKey: "drumstickTitle", subKey: "drumstickSub", descKey: "drumstickDesc" },
     ],
   },
   {
