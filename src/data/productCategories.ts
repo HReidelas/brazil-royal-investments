@@ -88,7 +88,7 @@ export const categories: CategoryConfig[] = [
     descKey: "oilsDesc",
     products: [
       { image: productOliveOil, titleKey: "oliveOilTitle", subKey: "oliveOilSub", descKey: "oliveOilDesc" },
-      { image: productOliveOil, titleKey: "avocadoOilTitle", subKey: "avocadoOilSub", descKey: "avocadoOilDesc" },
+      { image: productAvocadoOil, titleKey: "avocadoOilTitle", subKey: "avocadoOilSub", descKey: "avocadoOilDesc" },
     ],
   },
   {
