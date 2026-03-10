@@ -41,7 +41,7 @@ export const categories: CategoryConfig[] = [
     products: [
       { image: productAngus, titleKey: "angusTitle", subKey: "angusSub", descKey: "angusDesc" },
       { image: productSteaks, titleKey: "luxSteaksTitle", subKey: "luxSteaksSub", descKey: "luxSteaksDesc" },
-      { image: productSteaks, titleKey: "beefRibsTitle", subKey: "beefRibsSub", descKey: "beefRibsDesc" },
+      { image: productBeefRibs, titleKey: "beefRibsTitle", subKey: "beefRibsSub", descKey: "beefRibsDesc" },
     ],
   },
   {
