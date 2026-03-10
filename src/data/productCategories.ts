@@ -6,13 +6,17 @@ import productIcecream from "@/assets/product-icecream.png";
 import productFood from "@/assets/product-food.png";
 import productAngus from "@/assets/product-angus.jpg";
 import productSteaks from "@/assets/product-steaks.jpg";
+import productBeefRibs from "@/assets/product-beef-ribs.jpg";
 import productChicken from "@/assets/product-chicken.jpg";
 import productPremium from "@/assets/product-premium-chicken.jpg";
 import productWhole from "@/assets/product-whole-chicken.jpg";
 import productSaria from "@/assets/product-saria.jpg";
+import productDrumstick from "@/assets/product-drumstick.jpg";
 import productCoffeeTin from "@/assets/product-coffee-tin.jpg";
 import productCoffeeBag from "@/assets/product-coffee-bag.jpg";
+import productInstantCoffee from "@/assets/product-instant-coffee.jpg";
 import productOliveOil from "@/assets/product-olive-oil.jpg";
+import productAvocadoOil from "@/assets/product-avocado-oil.jpg";
 import type { Translations } from "@/i18n/translations";
 
 export interface ProductItem {
@@ -37,7 +41,7 @@ export const categories: CategoryConfig[] = [
     products: [
       { image: productAngus, titleKey: "angusTitle", subKey: "angusSub", descKey: "angusDesc" },
       { image: productSteaks, titleKey: "luxSteaksTitle", subKey: "luxSteaksSub", descKey: "luxSteaksDesc" },
-      { image: productSteaks, titleKey: "beefRibsTitle", subKey: "beefRibsSub", descKey: "beefRibsDesc" },
+      { image: productBeefRibs, titleKey: "beefRibsTitle", subKey: "beefRibsSub", descKey: "beefRibsDesc" },
     ],
   },
   {
@@ -49,7 +53,7 @@ export const categories: CategoryConfig[] = [
       { image: productPremium, titleKey: "premChickenTitle", subKey: "premChickenSub", descKey: "premChickenDesc" },
       { image: productWhole, titleKey: "wholeTitle", subKey: "wholeSub", descKey: "wholeDesc" },
       { image: productSaria, titleKey: "sariaTitle", subKey: "sariaSub", descKey: "sariaDesc" },
-      { image: productPremium, titleKey: "drumstickTitle", subKey: "drumstickSub", descKey: "drumstickDesc" },
+      { image: productDrumstick, titleKey: "drumstickTitle", subKey: "drumstickSub", descKey: "drumstickDesc" },
     ],
   },
   {
@@ -59,7 +63,7 @@ export const categories: CategoryConfig[] = [
     products: [
       { image: productCoffeeTin, titleKey: "coffeeTinTitle", subKey: "coffeeTinSub", descKey: "coffeeTinDesc" },
       { image: productCoffeeBag, titleKey: "coffeeBagTitle", subKey: "coffeeBagSub", descKey: "coffeeBagDesc" },
-      { image: productCoffeeTin, titleKey: "instantCoffeeTitle", subKey: "instantCoffeeSub", descKey: "instantCoffeeDesc" },
+      { image: productInstantCoffee, titleKey: "instantCoffeeTitle", subKey: "instantCoffeeSub", descKey: "instantCoffeeDesc" },
     ],
   },
   {
@@ -84,7 +88,7 @@ export const categories: CategoryConfig[] = [
     descKey: "oilsDesc",
     products: [
       { image: productOliveOil, titleKey: "oliveOilTitle", subKey: "oliveOilSub", descKey: "oliveOilDesc" },
-      { image: productOliveOil, titleKey: "avocadoOilTitle", subKey: "avocadoOilSub", descKey: "avocadoOilDesc" },
+      { image: productAvocadoOil, titleKey: "avocadoOilTitle", subKey: "avocadoOilSub", descKey: "avocadoOilDesc" },
     ],
   },
   {
