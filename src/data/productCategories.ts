@@ -6,13 +6,17 @@ import productIcecream from "@/assets/product-icecream.png";
 import productFood from "@/assets/product-food.png";
 import productAngus from "@/assets/product-angus.jpg";
 import productSteaks from "@/assets/product-steaks.jpg";
+import productBeefRibs from "@/assets/product-beef-ribs.jpg";
 import productChicken from "@/assets/product-chicken.jpg";
 import productPremium from "@/assets/product-premium-chicken.jpg";
 import productWhole from "@/assets/product-whole-chicken.jpg";
 import productSaria from "@/assets/product-saria.jpg";
+import productDrumstick from "@/assets/product-drumstick.jpg";
 import productCoffeeTin from "@/assets/product-coffee-tin.jpg";
 import productCoffeeBag from "@/assets/product-coffee-bag.jpg";
+import productInstantCoffee from "@/assets/product-instant-coffee.jpg";
 import productOliveOil from "@/assets/product-olive-oil.jpg";
+import productAvocadoOil from "@/assets/product-avocado-oil.jpg";
 import type { Translations } from "@/i18n/translations";
 
 export interface ProductItem {
