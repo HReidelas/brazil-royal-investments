@@ -91,7 +91,7 @@ export const categories: CategoryConfig[] = [
     nameKey: "icecream",
     descKey: "icecreamDesc",
     products: [
-      { image: companyLogo, titleKey: "vanillaGelatoTitle", subKey: "vanillaGelatoSub", descKey: "vanillaGelatoDesc" },
+      { image: productIcecream, titleKey: "vanillaGelatoTitle", subKey: "vanillaGelatoSub", descKey: "vanillaGelatoDesc" },
     ],
   },
   {
