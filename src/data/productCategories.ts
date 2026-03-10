@@ -1,5 +1,8 @@
 import companyLogo from "@/assets/logo.jpg";
 import productSugar from "@/assets/product-sugar.png";
+import productFuels from "@/assets/product-fuels.png";
+import productCereals from "@/assets/product-cereals.png";
+import productIcecream from "@/assets/product-icecream.png";
 import productAngus from "@/assets/product-angus.jpg";
 import productSteaks from "@/assets/product-steaks.jpg";
 import productChicken from "@/assets/product-chicken.jpg";
@@ -71,7 +74,7 @@ export const categories: CategoryConfig[] = [
     nameKey: "cereals",
     descKey: "cerealsDesc",
     products: [
-      { image: companyLogo, titleKey: "yellowCornTitle", subKey: "yellowCornSub", descKey: "yellowCornDesc" },
+      { image: productCereals, titleKey: "yellowCornTitle", subKey: "yellowCornSub", descKey: "yellowCornDesc" },
     ],
   },
   {
@@ -88,7 +91,7 @@ export const categories: CategoryConfig[] = [
     nameKey: "icecream",
     descKey: "icecreamDesc",
     products: [
-      { image: companyLogo, titleKey: "vanillaGelatoTitle", subKey: "vanillaGelatoSub", descKey: "vanillaGelatoDesc" },
+      { image: productIcecream, titleKey: "vanillaGelatoTitle", subKey: "vanillaGelatoSub", descKey: "vanillaGelatoDesc" },
     ],
   },
   {
@@ -96,7 +99,7 @@ export const categories: CategoryConfig[] = [
     nameKey: "fuels",
     descKey: "fuelsDesc",
     products: [
-      { image: companyLogo, titleKey: "dieselTitle", subKey: "dieselSub", descKey: "dieselDesc" },
+      { image: productFuels, titleKey: "dieselTitle", subKey: "dieselSub", descKey: "dieselDesc" },
     ],
   },
   {
