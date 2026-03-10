@@ -108,7 +108,7 @@ export const categories: CategoryConfig[] = [
     nameKey: "food",
     descKey: "foodDesc",
     products: [
-      { image: companyLogo, titleKey: "tomatoPasteTitle", subKey: "tomatoPasteSub", descKey: "tomatoPasteDesc" },
+      { image: productFood, titleKey: "tomatoPasteTitle", subKey: "tomatoPasteSub", descKey: "tomatoPasteDesc" },
     ],
   },
 ];
