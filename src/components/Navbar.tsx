@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "@/assets/logo.jpg";
+import logo from "@/assets/logo.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageSelector from "./LanguageSelector";
 import { categories } from "@/data/productCategories";

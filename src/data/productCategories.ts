@@ -1,4 +1,4 @@
-import companyLogo from "@/assets/logo.jpg";
+import companyLogo from "@/assets/logo.png";
 import productSugar from "@/assets/product-sugar.png";
 import productFuels from "@/assets/product-fuels.png";
 import productCereals from "@/assets/product-cereals.png";
