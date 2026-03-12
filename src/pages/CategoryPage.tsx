@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import companyLogo from "@/assets/logo.jpg";
+import companyLogo from "@/assets/logo.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { categories, type ProductItem } from "@/data/productCategories";
 import Navbar from "@/components/Navbar";
