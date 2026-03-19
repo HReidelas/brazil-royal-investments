@@ -90,6 +90,7 @@ export const categories: CategoryConfig[] = [
     slug: "cereals",
     nameKey: "cereals",
     descKey: "cerealsDesc",
+    comingSoon: true,
     products: [
       { image: productCereals, titleKey: "yellowCornTitle", subKey: "yellowCornSub", descKey: "yellowCornDesc" },
       { image: productSoybeans, titleKey: "soybeansTitle", subKey: "soybeansSub", descKey: "soybeansDesc" },
