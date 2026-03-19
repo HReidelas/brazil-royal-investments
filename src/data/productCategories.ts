@@ -110,6 +110,7 @@ export const categories: CategoryConfig[] = [
     slug: "icecream",
     nameKey: "icecream",
     descKey: "icecreamDesc",
+    comingSoon: true,
     products: [
       { image: productIcecream, titleKey: "vanillaGelatoTitle", subKey: "vanillaGelatoSub", descKey: "vanillaGelatoDesc" },
       { image: productChocolateGelato, titleKey: "chocolateGelatoTitle", subKey: "chocolateGelatoSub", descKey: "chocolateGelatoDesc" },
