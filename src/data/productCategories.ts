@@ -39,6 +39,7 @@ export interface CategoryConfig {
   nameKey: keyof Translations["products"];
   descKey: keyof Translations["products"];
   products: ProductItem[];
+  comingSoon?: boolean;
 }
 
 export const categories: CategoryConfig[] = [
