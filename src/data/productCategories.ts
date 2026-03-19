@@ -39,6 +39,7 @@ export interface CategoryConfig {
   nameKey: keyof Translations["products"];
   descKey: keyof Translations["products"];
   products: ProductItem[];
+  comingSoon?: boolean;
 }
 
 export const categories: CategoryConfig[] = [
@@ -89,6 +90,7 @@ export const categories: CategoryConfig[] = [
     slug: "cereals",
     nameKey: "cereals",
     descKey: "cerealsDesc",
+    comingSoon: true,
     products: [
       { image: productCereals, titleKey: "yellowCornTitle", subKey: "yellowCornSub", descKey: "yellowCornDesc" },
       { image: productSoybeans, titleKey: "soybeansTitle", subKey: "soybeansSub", descKey: "soybeansDesc" },
@@ -108,6 +110,7 @@ export const categories: CategoryConfig[] = [
     slug: "icecream",
     nameKey: "icecream",
     descKey: "icecreamDesc",
+    comingSoon: true,
     products: [
       { image: productIcecream, titleKey: "vanillaGelatoTitle", subKey: "vanillaGelatoSub", descKey: "vanillaGelatoDesc" },
       { image: productChocolateGelato, titleKey: "chocolateGelatoTitle", subKey: "chocolateGelatoSub", descKey: "chocolateGelatoDesc" },
@@ -126,6 +129,7 @@ export const categories: CategoryConfig[] = [
     slug: "food",
     nameKey: "food",
     descKey: "foodDesc",
+    comingSoon: true,
     products: [
       { image: productFood, titleKey: "tomatoPasteTitle", subKey: "tomatoPasteSub", descKey: "tomatoPasteDesc" },
       { image: productCannedFish, titleKey: "cannedFishTitle", subKey: "cannedFishSub", descKey: "cannedFishDesc" },

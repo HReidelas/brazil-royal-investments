@@ -86,8 +86,13 @@ const ProductsSection = () => {
               <motion.div key={c.slug} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
                 <Link
                   to={`/products/${c.slug}`}
-                  className="block bg-card border border-border p-8 hover:border-primary transition-all duration-500 group"
+                  className="block bg-card border border-border p-8 hover:border-primary transition-all duration-500 group relative"
                 >
+                  {c.comingSoon && (
+                    <span className="absolute top-4 right-4 bg-primary/20 text-primary font-body text-xs tracking-widest uppercase px-3 py-1 border border-primary/30">
+                      Soon
+                    </span>
+                  )}
                   <h4 className="text-lg font-display text-primary mb-3 group-hover:text-gold-light transition-colors duration-300">
                     {t.products[c.nameKey] as string}
                   </h4>
