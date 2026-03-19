@@ -40,6 +40,7 @@ export interface CategoryConfig {
   descKey: keyof Translations["products"];
   products: ProductItem[];
   comingSoon?: boolean;
+  outOfStock?: boolean;
 }
 
 export const categories: CategoryConfig[] = [
