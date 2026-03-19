@@ -121,6 +121,7 @@ export const categories: CategoryConfig[] = [
     slug: "fuels",
     nameKey: "fuels",
     descKey: "fuelsDesc",
+    outOfStock: true,
     products: [
       { image: productFuels, titleKey: "dieselTitle", subKey: "dieselSub", descKey: "dieselDesc" },
       { image: productIronOre, titleKey: "ironOreTitle", subKey: "ironOreSub", descKey: "ironOreDesc" },
