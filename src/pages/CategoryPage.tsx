@@ -88,6 +88,20 @@ const CategoryPage = () => {
                   className="group relative overflow-hidden border border-border hover:border-primary transition-all duration-500 cursor-pointer"
                   onClick={() => setSelectedProduct(p)}
                 >
+                  {/* Ribbon banner */}
+                  {(category.comingSoon || category.outOfStock) && (
+                    <div className="absolute top-0 left-0 right-0 z-20">
+                      <div
+                        className={`w-full py-2 text-center font-display text-sm tracking-[0.3em] uppercase ${
+                          category.outOfStock
+                            ? "bg-red-600 text-white"
+                            : "bg-yellow-500 text-background"
+                        }`}
+                      >
+                        {category.outOfStock ? "Out of Stock" : "Soon"}
+                      </div>
+                    </div>
+                  )}
                   <div className="absolute top-4 right-4 z-10 rounded-md border border-border bg-background/90 p-2 backdrop-blur-sm">
                     <img
                       src={companyLogo}
