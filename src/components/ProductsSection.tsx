@@ -52,29 +52,6 @@ const ProductsSection = () => {
             <p className="text-muted-foreground font-elegant text-lg max-w-2xl mx-auto">{t.products.description}</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-            {featuredProducts.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group relative overflow-hidden border border-border hover:border-primary transition-all duration-500 cursor-pointer"
-                onClick={() => setSelectedProduct(p)}
-              >
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                  <div>
-                    <h3 className="text-xl font-display text-primary mb-1">{p.title}</h3>
-                    <p className="text-muted-foreground font-body text-sm">{p.subtitle}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
 
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-display text-gradient-gold mb-4">{t.products.portfolioTitle}</h3>
