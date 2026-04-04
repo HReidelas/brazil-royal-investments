@@ -55,7 +55,7 @@ const ServicesSection = () => {
           <div className="bg-gradient-gold-horizontal h-px w-32 mx-auto" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20">
+        <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto mb-20">
           {services.map((s, i) => (
             <motion.div
               key={s.title}
@@ -63,7 +63,7 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="relative p-8 md:p-10 border border-border hover:border-primary group transition-all duration-500 bg-background hover:shadow-gold"
+              className="relative p-8 md:p-10 border border-border hover:border-primary group transition-all duration-500 bg-background hover:shadow-gold w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.4rem)]"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               <s.icon className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500" />
