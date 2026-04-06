@@ -11,13 +11,15 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
+  const productsRef = useRef<HTMLDivElement>(null);
+  const companyRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
   const location = useLocation();
 
   const isHome = location.pathname === "/";
-
   const navLink = (href: string) => (isHome ? href : `/${href}`);
 
   useEffect(() => {
@@ -28,19 +30,18 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setProductsOpen(false);
-      }
+      if (productsRef.current && !productsRef.current.contains(e.target as Node)) setProductsOpen(false);
+      if (companyRef.current && !companyRef.current.contains(e.target as Node)) setCompanyOpen(false);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const simpleLinks = [
-    { href: "#about", label: t.nav.about },
-    { href: "#services", label: t.nav.services },
-    { href: "#partners", label: t.nav.partners },
-    { href: "#contact", label: t.nav.contact },
+  const companyLinks = [
+    { to: "/manufacturer", label: t.nav.manufacturer },
+    { to: "/investor", label: t.nav.investor },
+    { to: "/news", label: t.nav.news },
+    { to: "/how-we-operate", label: t.nav.howWeOperate },
   ];
 
   return (
@@ -61,40 +62,40 @@ const Navbar = () => {
           </a>
 
           {/* Products Dropdown */}
-          <div ref={dropdownRef} className="relative">
-            <button
-              onClick={() => setProductsOpen(!productsOpen)}
-              className="flex items-center gap-1 font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
-            >
+          <div ref={productsRef} className="relative">
+            <button onClick={() => setProductsOpen(!productsOpen)} className="flex items-center gap-1 font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
               {t.nav.products}
               <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${productsOpen ? "rotate-180" : ""}`} />
             </button>
-
             <AnimatePresence>
               {productsOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-card border border-border shadow-gold min-w-[220px] py-2 z-50"
-                >
-                  <a
-                    href={navLink("#products")}
-                    onClick={() => setProductsOpen(false)}
-                    className="block px-5 py-2.5 font-body text-sm text-primary hover:bg-secondary transition-colors"
-                  >
+                <motion.div initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }} transition={{ duration: 0.2 }} className="absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-card border border-border shadow-gold min-w-[220px] py-2 z-50">
+                  <a href={navLink("#products")} onClick={() => setProductsOpen(false)} className="block px-5 py-2.5 font-body text-sm text-primary hover:bg-secondary transition-colors">
                     {t.products.title}
                   </a>
                   <div className="bg-gradient-gold-horizontal h-px w-full my-1" />
                   {categories.map((c) => (
-                    <Link
-                      key={c.slug}
-                      to={`/products/${c.slug}`}
-                      onClick={() => setProductsOpen(false)}
-                      className="block px-5 py-2.5 font-body text-sm text-muted-foreground hover:text-primary hover:bg-secondary transition-colors"
-                    >
+                    <Link key={c.slug} to={`/products/${c.slug}`} onClick={() => setProductsOpen(false)} className="block px-5 py-2.5 font-body text-sm text-muted-foreground hover:text-primary hover:bg-secondary transition-colors">
                       {t.products[c.nameKey] as string}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Company Dropdown */}
+          <div ref={companyRef} className="relative">
+            <button onClick={() => setCompanyOpen(!companyOpen)} className="flex items-center gap-1 font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
+              {t.nav.company}
+              <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${companyOpen ? "rotate-180" : ""}`} />
+            </button>
+            <AnimatePresence>
+              {companyOpen && (
+                <motion.div initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }} transition={{ duration: 0.2 }} className="absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-card border border-border shadow-gold min-w-[220px] py-2 z-50">
+                  {companyLinks.map((link) => (
+                    <Link key={link.to} to={link.to} onClick={() => setCompanyOpen(false)} className="block px-5 py-2.5 font-body text-sm text-muted-foreground hover:text-primary hover:bg-secondary transition-colors">
+                      {link.label}
                     </Link>
                   ))}
                 </motion.div>
@@ -122,43 +123,21 @@ const Navbar = () => {
 
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
-          >
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-background border-b border-border overflow-hidden">
             <div className="px-6 py-4 flex flex-col gap-4">
-              <a href={navLink("#about")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">
-                {t.nav.about}
-              </a>
-              <a href={navLink("#services")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">
-                {t.nav.services}
-              </a>
+              <a href={navLink("#about")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.about}</a>
+              <a href={navLink("#services")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.services}</a>
 
               {/* Mobile Products */}
-              <button
-                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                className="flex items-center gap-1 font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors text-left"
-              >
+              <button onClick={() => setMobileProductsOpen(!mobileProductsOpen)} className="flex items-center gap-1 font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors text-left">
                 {t.nav.products}
                 <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${mobileProductsOpen ? "rotate-180" : ""}`} />
               </button>
               <AnimatePresence>
                 {mobileProductsOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="flex flex-col gap-3 pl-4 border-l border-border"
-                  >
+                  <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="flex flex-col gap-3 pl-4 border-l border-border">
                     {categories.map((c) => (
-                      <Link
-                        key={c.slug}
-                        to={`/products/${c.slug}`}
-                        onClick={() => { setOpen(false); setMobileProductsOpen(false); }}
-                        className="font-body text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
+                      <Link key={c.slug} to={`/products/${c.slug}`} onClick={() => { setOpen(false); setMobileProductsOpen(false); }} className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">
                         {t.products[c.nameKey] as string}
                       </Link>
                     ))}
@@ -166,12 +145,25 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
 
-              <a href={navLink("#partners")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">
-                {t.nav.partners}
-              </a>
-              <a href={navLink("#contact")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">
-                {t.nav.contact}
-              </a>
+              {/* Mobile Company */}
+              <button onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)} className="flex items-center gap-1 font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors text-left">
+                {t.nav.company}
+                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${mobileCompanyOpen ? "rotate-180" : ""}`} />
+              </button>
+              <AnimatePresence>
+                {mobileCompanyOpen && (
+                  <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="flex flex-col gap-3 pl-4 border-l border-border">
+                    {companyLinks.map((link) => (
+                      <Link key={link.to} to={link.to} onClick={() => { setOpen(false); setMobileCompanyOpen(false); }} className="font-body text-sm text-muted-foreground hover:text-primary transition-colors">
+                        {link.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <a href={navLink("#partners")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.partners}</a>
+              <a href={navLink("#contact")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.contact}</a>
             </div>
           </motion.div>
         )}

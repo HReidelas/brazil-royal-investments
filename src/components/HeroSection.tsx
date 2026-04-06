@@ -7,26 +7,19 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32">
-      {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, hsl(43, 72%, 50%, 0.03) 35px, hsl(43, 72%, 50%, 0.03) 36px)`,
         }} />
       </div>
 
-      {/* Gold corner accents */}
       <div className="absolute top-0 left-0 w-32 h-32 border-t border-l border-primary opacity-30" />
       <div className="absolute top-0 right-0 w-32 h-32 border-t border-r border-primary opacity-30" />
       <div className="absolute bottom-0 left-0 w-32 h-32 border-b border-l border-primary opacity-30" />
       <div className="absolute bottom-0 right-0 w-32 h-32 border-b border-r border-primary opacity-30" />
 
       <div className="container mx-auto px-6 text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="mb-8"
-        >
+        <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: "easeOut" }} className="mb-8">
           <img src={logo} alt="Brazil Royal Investments" className="w-48 h-48 md:w-64 md:h-64 mx-auto object-contain rounded-2xl shadow-gold-lg" />
         </motion.div>
 
@@ -38,10 +31,8 @@ const HeroSection = () => {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="max-w-3xl mx-auto mb-10">
-          <h3 className="text-2xl md:text-3xl font-display text-gradient-gold mb-6 italic">The best of Brazil to the world.</h3>
-          <p className="text-muted-foreground font-body text-sm md:text-base leading-relaxed mb-8">
-            Brazil Royal Investments is a commercial and brand management company focused on developing, managing and distributing the best Brazilian products in international markets. Through strategic partnerships, we bring high quality products to global consumers.
-          </p>
+          <h3 className="text-2xl md:text-3xl font-display text-gradient-gold mb-6 italic">{t.hero.headline}</h3>
+          <p className="text-muted-foreground font-body text-sm md:text-base leading-relaxed mb-8">{t.hero.description}</p>
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.2 }} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -54,11 +45,10 @@ const HeroSection = () => {
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 1.5 }} className="text-muted-foreground/60 font-body text-xs tracking-wide space-y-1">
-          <p>Registered in Dr. Camargo, Paraná · CNPJ 54.611.141/0001-70</p>
-          <p>Head office: Doutor Camargo, Paraná, Brazil</p>
+          <p>{t.hero.registered}</p>
+          <p>{t.hero.headOffice}</p>
         </motion.div>
       </div>
-
     </section>
   );
 };
