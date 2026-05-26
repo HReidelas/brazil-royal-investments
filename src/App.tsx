@@ -6,6 +6,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
+import ProductsPage from "./pages/ProductsPage";
 import ManufacturerPage from "./pages/ManufacturerPage";
 import InvestorPage from "./pages/InvestorPage";
 import NewsPage from "./pages/NewsPage";
@@ -23,6 +24,7 @@ const App = () => (
         <HashRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:slug" element={<CategoryPage />} />
             <Route path="/manufacturer" element={<ManufacturerPage />} />
             <Route path="/investor" element={<InvestorPage />} />

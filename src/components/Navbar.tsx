@@ -70,9 +70,9 @@ const Navbar = () => {
             <AnimatePresence>
               {productsOpen && (
                 <motion.div initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }} transition={{ duration: 0.2 }} className="absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-card border border-border shadow-gold min-w-[220px] py-2 z-50">
-                  <a href={navLink("#products")} onClick={() => setProductsOpen(false)} className="block px-5 py-2.5 font-body text-sm text-primary hover:bg-secondary transition-colors">
+                  <Link to="/products" onClick={() => setProductsOpen(false)} className="block px-5 py-2.5 font-body text-sm text-primary hover:bg-secondary transition-colors">
                     {t.products.title}
-                  </a>
+                  </Link>
                   <div className="bg-gradient-gold-horizontal h-px w-full my-1" />
                   {categories.map((c) => (
                     <Link key={c.slug} to={`/products/${c.slug}`} onClick={() => setProductsOpen(false)} className="block px-5 py-2.5 font-body text-sm text-muted-foreground hover:text-primary hover:bg-secondary transition-colors">
