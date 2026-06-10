@@ -70,10 +70,10 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 ml-auto pl-16">
-          <a href={navLink("#about")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
+          <a href="/#about" onClick={goToSection("about")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
             {t.nav.about}
           </a>
-          <a href={navLink("#services")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
+          <a href="/#services" onClick={goToSection("services")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
             {t.nav.services}
           </a>
 
@@ -119,10 +119,10 @@ const Navbar = () => {
             </AnimatePresence>
           </div>
 
-          <a href={navLink("#partners")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
+          <a href="/#partners" onClick={goToSection("partners")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
             {t.nav.partners}
           </a>
-          <a href={navLink("#contact")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
+          <a href="/#contact" onClick={goToSection("contact")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
             {t.nav.contact}
           </a>
           <LanguageSelector />
@@ -141,8 +141,8 @@ const Navbar = () => {
         {open && (
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-background border-b border-border overflow-hidden">
             <div className="px-6 py-4 flex flex-col gap-4">
-              <a href={navLink("#about")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.about}</a>
-              <a href={navLink("#services")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.services}</a>
+              <a href="/#about" onClick={goToSection("about")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.about}</a>
+              <a href="/#services" onClick={goToSection("services")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.services}</a>
 
               {/* Mobile Products */}
               <button onClick={() => setMobileProductsOpen(!mobileProductsOpen)} className="flex items-center gap-1 font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors text-left">
@@ -178,8 +178,8 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
 
-              <a href={navLink("#partners")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.partners}</a>
-              <a href={navLink("#contact")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.contact}</a>
+              <a href="/#partners" onClick={goToSection("partners")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.partners}</a>
+              <a href="/#contact" onClick={goToSection("contact")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.contact}</a>
             </div>
           </motion.div>
         )}
