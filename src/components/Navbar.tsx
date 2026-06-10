@@ -139,7 +139,7 @@ const Navbar = () => {
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-background border-b border-border overflow-hidden">
             <div className="px-6 py-4 flex flex-col gap-4">
               
-              <a href="/#services" onClick={goToSection("services")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.services}</a>
+              <a href="/#services" onClick={goToSection("services")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.services}</a>
 
               {/* Mobile Products */}
               <button onClick={() => setMobileProductsOpen(!mobileProductsOpen)} className="flex items-center gap-1 font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors text-left">
@@ -175,8 +175,8 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
 
-              <a href="/#partners" onClick={goToSection("partners")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.partners}</a>
-              <a href="/#contact" onClick={goToSection("contact")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.contact}</a>
+              <a href="/#partners" onClick={goToSection("partners")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.partners}</a>
+              <a href="/#contact" onClick={goToSection("contact")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.contact}</a>
             </div>
           </motion.div>
         )}
