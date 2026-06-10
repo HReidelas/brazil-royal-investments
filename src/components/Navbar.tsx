@@ -70,9 +70,6 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 ml-auto pl-16">
-          <a href="/#about" onClick={goToSection("about")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
-            {t.nav.about}
-          </a>
           <a href="/#services" onClick={goToSection("services")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
             {t.nav.services}
           </a>
@@ -141,7 +138,7 @@ const Navbar = () => {
         {open && (
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-background border-b border-border overflow-hidden">
             <div className="px-6 py-4 flex flex-col gap-4">
-              <a href="/#about" onClick={goToSection("about")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.about}</a>
+              
               <a href="/#services" onClick={goToSection("services")} onClick={() => setOpen(false)} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">{t.nav.services}</a>
 
               {/* Mobile Products */}
