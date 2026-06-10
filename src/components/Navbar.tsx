@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageSelector from "./LanguageSelector";
@@ -18,9 +18,25 @@ const Navbar = () => {
   const companyRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isHome = location.pathname === "/";
-  const navLink = (href: string) => (isHome ? href : `/${href}`);
+
+  const goToSection = (sectionId: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    setOpen(false);
+    const id = sectionId.replace("#", "");
+    const scrollTo = () => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    if (isHome) {
+      scrollTo();
+    } else {
+      navigate("/");
+      setTimeout(scrollTo, 100);
+    }
+  };
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
