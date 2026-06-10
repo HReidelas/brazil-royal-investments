@@ -69,7 +69,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8 ml-auto pl-16">
+        <div className="hidden md:flex items-center gap-8 ms-auto ps-16">
           <a href="/#services" onClick={goToSection("services")} className="font-body text-sm tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300">
             {t.nav.services}
           </a>
